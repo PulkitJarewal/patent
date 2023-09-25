@@ -1,280 +1,288 @@
-body, h1, h2, h3, p {
-    margin: 0;
-    padding: 0;
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
 }
 .grid-container {
   display: grid;
-  grid-template-columns: 20px auto;
-  background-color: #2196F3;
-  padding: 10px;
+  grid-template-columns: 25vw auto;
+  /* background-color: #2196f3; */
+  /* padding: 10px; */
 }
+
 .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-  }
+  background-color: white;
+  /* border: 1px solid rgba(0, 0, 0, 0.8); */
+  /*padding: 20px; */
+  font-size: 30px;
+  text-align: center;
+}
+
+.item1 {
+  grid-row: 1 / 2;
+}
 
 body {
-    display: grid; /* Use grid layout for the body */
-    grid-template-columns: 1fr; /* Define a single column layout */
-    grid-template-rows: auto 1fr; /* Two rows: auto for the header, 1fr for the content */
-    height: 100vh; /* Make the body fill the viewport height */
-    font-family: 'Your Chosen Font', sans-serif;
-    font-weight: 400;
-    line-height: 1.6;
-    /* Add other styles as needed */
+  display: grid; /* Use grid layout for the body */
+  grid-template-columns: 1fr; /* Define a single column layout */
+  grid-template-rows: auto 1fr; /* Two rows: auto for the header, 1fr for the content */
+  height: 100vh; /* Make the body fill the viewport height */
+  font-family: "Your Chosen Font", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  /* Add other styles as needed */
 }
 
 header {
-    background: linear-gradient(to bottom, #3498db, #2980b9);
-    color: white;
-    text-align: center;
-    padding: 20px;
-    /* Add other styles as needed */
+  background: linear-gradient(to bottom, #3498db, #2980b9);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  /* Add other styles as needed */
 }
 
 .image {
-    width: 150px; /* Adjust the size as needed */
-    height: 100px; /* Maintain a square aspect ratio */
-    border: 3px solid #fff; /* Add a border */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-    transition: transform 0.3s ease; /* Add a hover effect */
-    object-fit: cover;
+  width: 150px; /* Adjust the size as needed */
+  height: 100px; /* Maintain a square aspect ratio */
+  border: 3px solid #fff; /* Add a border */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  transition: transform 0.3s ease; /* Add a hover effect */
+  object-fit: cover;
 }
 
 .image:hover {
-    transform: scale(1.05); /* Enlarge the image on hover */
+  transform: scale(1.05); /* Enlarge the image on hover */
 }
 
 h1 {
-    font-size: 42px;
-    margin-top: 20px;
-    font-family: 'PT Serif', serif;
+  font-size: 42px;
+  margin-top: 20px;
+  font-family: "PT Serif", serif;
 }
 
 main {
-    flex-grow: 1;
-    text-align: center;
+  flex-grow: 1;
+  text-align: center;
 }
 
 select {
-    padding: 10px;
-    margin: 20px;
-    border: 2px solid #3498db;
-    border-radius: 25px;
-    outline: none;
-    font-size: 16px;
-    background-color: #fff; /* Set a background color */
-    color: #333; /* Set text color */
+  padding: 10px;
+  margin: 20px;
+  border: 2px solid #3498db;
+  border-radius: 25px;
+  outline: none;
+  font-size: 16px;
+  background-color: #fff; /* Set a background color */
+  color: #333; /* Set text color */
 }
 
 /* Style the <option> tags */
 select option {
-    background-color: #fff; /* Set a background color */
-    color: #333; /* Set text color */
-    padding: 10px;
-    border-bottom: 1px solid #ccc; /* Add a border between options */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Add transitions */
+  background-color: #fff; /* Set a background color */
+  color: #333; /* Set text color */
+  padding: 10px;
+  border-bottom: 1px solid #ccc; /* Add a border between options */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add transitions */
 }
 
 /* Style the hover effect for <option> tags */
 select option:hover {
-    background-color: #3498db; /* Change background color on hover */
-    color: #fff; /* Change text color on hover */
+  background-color: #3498db; /* Change background color on hover */
+  color: #fff; /* Change text color on hover */
 }
 
-
 .submit {
-    width: 120px;
-    height: 50px;
-    margin-left: 20px;
-    background: linear-gradient(to bottom, #3498db, #2980b9);
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
+  width: 120px;
+  height: 50px;
+  margin-left: 20px;
+  background: linear-gradient(to bottom, #3498db, #2980b9);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
 }
 
 .submit:hover {
-    background: linear-gradient(to bottom, #2980b9, #2575a7);
-    transform: scale(1.05); /* Enlarge the button on hover */
+  background: linear-gradient(to bottom, #2980b9, #2575a7);
+  transform: scale(1.05); /* Enlarge the button on hover */
 }
-.plus{
-    width: 50px;
-    height: 50px;
-    margin-left: 20px;
-    background: linear-gradient(to bottom, #3498db, #2980b9);
-    color: white;
-    font-weight: bold;
-    font-size: medium;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
+.plus {
+  width: 50px;
+  height: 50px;
+  margin-left: 20px;
+  background: linear-gradient(to bottom, #3498db, #2980b9);
+  color: white;
+  font-weight: bold;
+  font-size: medium;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
 }
-.plus:hover{
-    background: linear-gradient(to bottom, #2980b9, #2575a7);
-    transform: scale(1.05); /* Enlarge the button on hover */
+.plus:hover {
+  background: linear-gradient(to bottom, #2980b9, #2575a7);
+  transform: scale(1.05); /* Enlarge the button on hover */
 }
-
 
 li {
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 10px;
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transitions */
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transitions */
 }
 
 li:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .search {
-    margin: 0px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin: 0px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #searchInput {
-    width: 400px;
-    height: 50px;
-    padding: 10px;
-    border: 2px solid #3498db;
-    border-radius: 25px;
-    outline: none;
-    font-size: 16px;
-    
+  width: 400px;
+  height: 50px;
+  padding: 10px;
+  border: 2px solid #3498db;
+  border-radius: 25px;
+  outline: none;
+  font-size: 16px;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 #pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
+  /* display: flex; */
+  /* justify-content: center; */
+  align-items: center;
+  margin-top: 20px;
 }
 
 .page {
-    padding: 12px 24px;
-    margin: 0 8px;
-    background: linear-gradient(to bottom, #3498db, #2980b9);
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Add transitions */
+  /* padding: 12px 24px; */
+  padding: 5px 5px;
+  margin: 0 8px;
+  background: linear-gradient(to bottom, #3498db, #2980b9);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add transitions */
 }
 
 .page:hover {
-    background: linear-gradient(to bottom, #2980b9, #2575a7);
-    transform: scale(1.05);
+  background: linear-gradient(to bottom, #2980b9, #2575a7);
+  transform: scale(1.05);
 }
 
 .page[disabled] {
-    background-color: #dcdcdc;
-    cursor: not-allowed;
+  background-color: #dcdcdc;
+  cursor: not-allowed;
 }
 
- /* Style the <label> tags */
+/* Style the <label> tags */
 label {
-    display: block;
-    margin: 5px 0;
-    font-size: 16px;
-    cursor: pointer;
-    transition: color 0.3s ease; /* Add transition for text color */
+  display: block;
+  margin: 5px 0;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease; /* Add transition for text color */
 }
 
 /* Change text color on hover */
 label:hover {
-    color: #3498db;
+  color: #3498db;
 }
 
 /* Style the <details> and <summary> tags */
 details {
-    margin: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
-    max-width: 300px; /* Adjust the maximum width as needed */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease; /* Add transition for box shadow */
+  margin: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  max-width: 300px; /* Adjust the maximum width as needed */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease; /* Add transition for box shadow */
 }
 
 /* Change box shadow on hover */
 details:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Style the <summary> tag */
 summary {
-    background-color: #3498db;
-    color: white;
-    padding: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Add transitions for background and text color */
+  background-color: #3498db;
+  max-width: auto;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add transitions for background and text color */
 }
 
 /* Change background and text color on hover */
 summary:hover {
-    background-color: #2980b9;
-    color: white;
+  background-color: #2980b9;
+  color: white;
 }
 
-/* .sidebar {
-    position: fixed;
-    top: 100px; /* Adjust the top position to start below the header */
-    left: 0;
-    width: 250px;
-    height: 100%;
-    background-color: #f0f0f0; /* Adjust the background color */
-    padding: 20px;
-    overflow-y: auto; /* Enable vertical scrolling if needed */
-    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1); /* Add a shadow to the sidebar */
-    z-index: 1; /* Ensure the sidebar stays above other elements */
-} */
+.sidebar {
+  /* position: fixed; */
+  /* top: 100px; Adjust the top position to start below the header */
+  /* left: 0; */
+  /* width: 250px; */
+  /* height: 100%; */
+  background-color: #f0f0f0; /* Adjust the background color */
+  padding: 20px;
+  /* overflow-y: auto; Enable vertical scrolling if needed */
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1); /* Add a shadow to the sidebar */
+  /* z-index: 1; Ensure the sidebar stays above other elements */
+}
 
 /* Style the <details> tags within the sidebar */
 .sidebar details {
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
 }
 
 /* Change box shadow on hover for <details> tags */
 .sidebar details:hover {
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Style the <summary> tags within the sidebar */
 .sidebar summary {
-    background-color: #3498db;
-    color: white;
-    padding: 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #3498db;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Change background and text color on hover for <summary> tags */
 .sidebar summary:hover {
-    background-color: #2980b9;
-    color: white;
+  background-color: #2980b9;
+  color: white;
 }

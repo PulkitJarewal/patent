@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const plusButton = document.getElementById("plusButton");
   const searchBarsContainer = document.getElementById("searchBarsContainer");
   const globalOperatorSelect = document.getElementById("globalOperator");
-  const searchBars = [document.querySelector(".search-Input")];
+  //const searchBars = [document.querySelector(".search-Input")];
+  const searchSection = [document.querySelector("#searchItem")];
 
   let searchBarCount = 1;
   let claimText;
@@ -41,15 +42,25 @@ document.addEventListener("DOMContentLoaded", () => {
   // });
 
   plusButton.addEventListener("click", () => {
-    // Create a new search bar
-    const newSearchBar = document.createElement("input");
-    newSearchBar.type = "search";
-    newSearchBar.className = "search-input";
-    newSearchBar.placeholder = "Search patents...";
+    // // Create a new search bar
+    // const newSearchBar = document.createElement("input");
+    // newSearchBar.type = "search";
+    // newSearchBar.id = "searchInput";
+    // newSearchBar.className = "search-Input";
+    // newSearchBar.placeholder = "Search patents...";
 
-    // Append the container to the searchBarsContainer
-    searchBars.push(newSearchBar);
-    searchBarsContainer.appendChild(newSearchBar);
+    // // Append the container to the searchBarsContainer
+    // searchBars.push(newSearchBar);
+    // searchBarsContainer.appendChild(newSearchBar);
+    // //searchBarsContainer.innerHTML += "<br>";
+
+    let searchItem = document.querySelector("#searchItem");
+    let clonedSearchItem = searchItem.cloneNode(true);
+    clonedSearchItem.style.display = "block";
+
+    searchBarsContainer.appendChild(clonedSearchItem);
+    //searchBars.push(clonedSearchItem.querySelector("#searchInput"));
+    searchSection.push(clonedSearchItem);
   });
 
   searchButton.addEventListener("click", () => {
@@ -57,16 +68,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Construct the query
     const queries = [];
-    searchBars.forEach((searchBar) => {
-      const query = searchBar.value.trim();
+    searchSection.forEach((search) => {
+      let searchText = search.querySelector("#searchInput");
+      let searchField = search.querySelector("#document-section").value;
+
+      const query = searchText.value.trim();
       if (query) {
-        queries.push(`(${query})`);
+        let url;
+        if (searchField === "All Fields") {
+          url = `${query}`;
+        } else if (searchField === "Title, Claims & Abstract") {
+          url = `(title:(${query})%20OR%20abstract:(${query})%20OR%20claim:(${query}))`;
+        } else if (searchField === "Claims") {
+          url = `claim:${query}`;
+        } else if (searchField === "Full Text") {
+          url = `full_text:${query}`;
+        } else {
+          console.log(searchField.toLowerCase());
+          url = `${searchField.toLowerCase()}:${query}`;
+        }
+        queries.push(`(${url})`);
       }
+      searchInput = queries.join(` ${globalOperator} `);
+      const finalQuery = searchInput;
+      console.log("Search Query:", finalQuery);
     });
-    searchInput = queries.join(` ${globalOperator} `);
-    const finalQuery = searchInput;
-    // Perform the search with the finalQuery
-    console.log("Search Query:", finalQuery);
   });
 
   // Function to update the results based on the current page
@@ -75,22 +101,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (query === "") {
       return;
     }
-    const searchSection = document.getElementById("document-section").value;
+    // const searchSection = document.getElementById("document-section").value;
     let apiUrl =
       "https://api.lens.org/patent/search?token=P2bqXKNCDGWxsPcMeZwNCeOQR9gsB9CPYrZFUi33bMilgKQ0b20X";
 
     // Append the appropriate query parameter based on the selected search section
-    if (searchSection === "All Fields") {
-      apiUrl += `&query=${query}`;
-    } else if (searchSection === "Title, Claims & Abstract") {
-      apiUrl += `&query=(title:(${query})%20OR%20abstract:(${query})%20OR%20claim:(${query}))`;
-    } else if (searchSection === "Claims") {
-      apiUrl += `&query=claim:${query}`;
-    } else if (searchSection === "Full Text") {
-      apiUrl += `&query=full_text:${query}`;
-    } else {
-      apiUrl += `&query=${searchSection.toLowerCase()}:${query}`;
-    }
+
     // else if (searchSection === "Title") {
     //   apiUrl += `&query=title:${query}`;
     // } else if (searchSection === "Abstract") {
@@ -99,7 +115,9 @@ document.addEventListener("DOMContentLoaded", () => {
     //   apiUrl += `&query=description:${query}`;
     // }
     // Append the size and from parameters
-    apiUrl += `&size=${resultsPerPage}&from=${currentPageNumber - 1}`;
+    apiUrl += `&query=${query}&size=${resultsPerPage}&from=${
+      currentPageNumber - 1
+    }`;
 
     try {
       console.log(apiUrl);
